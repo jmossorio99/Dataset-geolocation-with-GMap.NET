@@ -1,6 +1,6 @@
-﻿namespace Project3
+﻿namespace ShareAVehicle
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -41,8 +41,8 @@
             this.gmap.LevelsKeepInMemmory = 5;
             this.gmap.Location = new System.Drawing.Point(12, 12);
             this.gmap.MarkersEnabled = true;
-            this.gmap.MaxZoom = 18;
-            this.gmap.MinZoom = 0;
+            this.gmap.MaxZoom = 15;
+            this.gmap.MinZoom = 2;
             this.gmap.MouseWheelZoomEnabled = true;
             this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.gmap.Name = "gmap";
@@ -53,21 +53,20 @@
             this.gmap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gmap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gmap.ShowTileGridLines = false;
-            this.gmap.Size = new System.Drawing.Size(776, 426);
+            this.gmap.Size = new System.Drawing.Size(1228, 676);
             this.gmap.TabIndex = 0;
             this.gmap.Zoom = 13D;
-            this.gmap.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.gmap_OnMarkerClick);
             this.gmap.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gmap_MouseDoubleClick);
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1252, 700);
             this.Controls.Add(this.gmap);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "MainWindow";
+            this.Text = "MainWindow";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
 
         }
@@ -77,4 +76,3 @@
         private GMap.NET.WindowsForms.GMapControl gmap;
     }
 }
-
