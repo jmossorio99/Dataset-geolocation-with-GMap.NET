@@ -61,6 +61,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VehicleOrUserWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VehicleOrUserWindow.Designer.cs">
+      <DependentUpon>VehicleOrUserWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,6 +79,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VehicleOrUserWindow.resx">
+      <DependentUpon>VehicleOrUserWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="data\dataset1000lines.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

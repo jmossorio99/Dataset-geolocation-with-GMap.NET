@@ -56,6 +56,7 @@
             this.gmap.Size = new System.Drawing.Size(1228, 676);
             this.gmap.TabIndex = 0;
             this.gmap.Zoom = 13D;
+            this.gmap.Load += new System.EventHandler(this.Gmap_Load);
             this.gmap.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gmap_MouseDoubleClick);
             // 
             // MainWindow

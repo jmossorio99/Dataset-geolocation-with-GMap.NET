@@ -23,10 +23,17 @@ namespace ShareAVehicle
         private List<Double> markersData;
         private PointLatLng currentPosition;
         private DataManager dm = new DataManager();
+        private Boolean user;
 
-        public MainWindow()
+        public MainWindow(Boolean user)
         {
             InitializeComponent();
+
+            if (user)
+            {
+                user = true;
+            }
+
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -52,7 +59,7 @@ namespace ShareAVehicle
 
         private void setMarkers() {
 
-            for (int i = 0; i < markersData.Count; i = i+2)
+            for (int i = 0; i < markersData.Count; i += 2)
             {
                 GMapMarker marker = new GMarkerGoogle(new PointLatLng(markersData.ElementAt(i), markersData.ElementAt(i+1)), GMarkerGoogleType.blue_dot);
                 markers.Markers.Add(marker);
@@ -63,13 +70,30 @@ namespace ShareAVehicle
         private void gmap_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
-            if (e.Button == MouseButtons.Left)
+            if (user)
             {
-                double latitude = gmap.FromLocalToLatLng(e.X, e.Y).Lat;
-                double longitude = gmap.FromLocalToLatLng(e.X, e.Y).Lng;
-                currentPosition = new PointLatLng(latitude, longitude);
-                findClosestMarker(currentPosition);
+                if (e.Button == MouseButtons.Left)
+                {
+                    double latitude = gmap.FromLocalToLatLng(e.X, e.Y).Lat;
+                    double longitude = gmap.FromLocalToLatLng(e.X, e.Y).Lng;
+                    currentPosition = new PointLatLng(latitude, longitude);
+                    findClosestMarker(currentPosition);
+                }
             }
+            else
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    if (MessageBox.Show("Do you want to add a car here?","Add car",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        double latitude = gmap.FromLocalToLatLng(e.X, e.Y).Lat;
+                        double longitude = gmap.FromLocalToLatLng(e.X, e.Y).Lng;
+                        write(latitude,longitude);
+                        this.Close();
+                    }
+                }
+            }
+            
             
 
         }
@@ -136,5 +160,20 @@ namespace ShareAVehicle
 
         }
 
+        private void write(Double x, Double y) {
+
+            List<String> list = new List<string>();
+
+            list.Add( x.ToString() );
+            list.Add( y.ToString() );
+             
+            dm.writeFile(list);
+
+        }
+
+        private void Gmap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
