@@ -83,8 +83,10 @@ namespace ShareAVehicle
                 {
                     if (MessageBox.Show("Do you want to add a car here?","Add car",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        double latitude = gmap.FromLocalToLatLng(e.X, e.Y).Lat;
-                        double longitude = gmap.FromLocalToLatLng(e.X, e.Y).Lng;
+                        string latitude = gmap.FromLocalToLatLng(e.X, e.Y).Lat.ToString();
+                        string longitude = gmap.FromLocalToLatLng(e.X, e.Y).Lng.ToString();
+                        latitude = latitude.Replace(",", ".");
+                        longitude = longitude.Replace(",", ".");
                         write(System.DateTime.UtcNow,latitude,longitude, "[]");
                         this.Close();
                     }
@@ -157,9 +159,9 @@ namespace ShareAVehicle
 
         }
 
-        private void write(DateTime date, Double x, Double y, string extra) {
+        private void write(DateTime date, string x, string y, string extra) {
 
-            String list = Environment.NewLine + date.ToString() + ", " + x.ToString() + ", " + y.ToString() + ", " + extra;
+            String list = Environment.NewLine + date.ToString() + ", " + x + ", " + y + ", " + extra;
             dm.writeFile(list);
 
         }

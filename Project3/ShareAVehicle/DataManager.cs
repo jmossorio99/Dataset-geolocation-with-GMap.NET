@@ -22,6 +22,8 @@ namespace ShareAVehicle
             foreach (var line in list)
             {
                 String[] latAndLong = line.Split(',');
+                latAndLong[1] = latAndLong[1].Replace(".", ",");
+                latAndLong[2] = latAndLong[2].Replace(".", ",");
                 output.Add(Convert.ToDouble(latAndLong[1]));
                 output.Add(Convert.ToDouble(latAndLong[2]));
             }
