@@ -27,12 +27,9 @@ namespace ShareAVehicle
 
         public MainWindow(Boolean user)
         {
-            InitializeComponent();
 
-            if (user)
-            {
-                user = true;
-            }
+            this.user = user;
+            InitializeComponent();
 
         }
 
@@ -88,7 +85,7 @@ namespace ShareAVehicle
                     {
                         double latitude = gmap.FromLocalToLatLng(e.X, e.Y).Lat;
                         double longitude = gmap.FromLocalToLatLng(e.X, e.Y).Lng;
-                        write(latitude,longitude);
+                        write(System.DateTime.UtcNow,latitude,longitude, "[]");
                         this.Close();
                     }
                 }
@@ -160,13 +157,9 @@ namespace ShareAVehicle
 
         }
 
-        private void write(Double x, Double y) {
+        private void write(DateTime date, Double x, Double y, string extra) {
 
-            List<String> list = new List<string>();
-
-            list.Add( x.ToString() );
-            list.Add( y.ToString() );
-             
+            String list = Environment.NewLine + date.ToString() + ", " + x.ToString() + ", " + y.ToString() + ", " + extra;
             dm.writeFile(list);
 
         }

@@ -29,9 +29,9 @@ namespace ShareAVehicle
 
         }
 
-        public void writeFile(List<String> list) {
+        public void writeFile(string list) {
 
-            File.AppendAllLines(filePath,list);
+            File.AppendAllText(filePath,list);
 
         }
 
