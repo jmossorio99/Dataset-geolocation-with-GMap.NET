@@ -82,7 +82,6 @@
     <EmbeddedResource Include="VehicleOrUserWindow.resx">
       <DependentUpon>VehicleOrUserWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="data\dataset1000lines.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,6 +95,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="GMap dll\GMap.NET.Core.dll" />
+    <Content Include="GMap dll\GMap.NET.WindowsForms.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,16 +17,6 @@ namespace ShareAVehicle
             InitializeComponent();
         }
 
-        private void VehicleOrUserWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void UserBtn_Click(object sender, EventArgs e)
         {
             MainWindow main = new MainWindow(true);

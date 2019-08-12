@@ -66,7 +66,7 @@
             this.ClientSize = new System.Drawing.Size(1252, 700);
             this.Controls.Add(this.gmap);
             this.Name = "MainWindow";
-            this.Text = "MainWindow";
+            this.Text = "Share a vehicle map";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
 
