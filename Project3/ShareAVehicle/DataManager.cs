@@ -11,7 +11,7 @@ namespace ShareAVehicle
     class DataManager
     {
 
-        private readonly String filePath = Path.Combine(Environment.CurrentDirectory, @"data\", "dataset1000lines.csv");
+        private readonly String filePath = @".. \.. \dataset1000lines.csv";
 
         public DataManager() { }
 
